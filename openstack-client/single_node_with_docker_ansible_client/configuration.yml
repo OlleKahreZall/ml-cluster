@@ -22,8 +22,8 @@
    - name: Download git repository
      become: true
      git:
-      repo: 'https://adricu8@bitbucket.org/adricu8/github_stargazers.git'
-      dest: /github_stargazers/model_serving 
+      repo: 'https://github.com/OlleKahreZall/model_serving.git'
+      dest: /model_serving 
 
    - name: Change ownership of a directory
      become: true
