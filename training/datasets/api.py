@@ -1,8 +1,8 @@
 import requests
 import pandas as pd
 
-username='DanielCondeOrtiz'
-git_token='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'
+username=''
+git_token=''
 github_data = []
 
 #url = "https://api.github.com/search/repositories"
