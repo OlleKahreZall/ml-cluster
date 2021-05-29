@@ -60,8 +60,8 @@ def get_metrics():
         #print(predictions[i])
         r2.append(np.round(r2_score(y, predictions[i]), 3))
     
-    #Take the predictions of the best performance method (bagging)
-    pred_boosting = predictions[1]
+    #Take the predictions of the best performance method
+    pred_boosting = predictions[4]
     #top 5 highest values from the stars predictions
     index = np.argpartition(pred_boosting,-5)[-5:]
     index = index[::-1]
@@ -74,14 +74,8 @@ def get_metrics():
     #top_repos: name, predicted_stars, real_Stars, forks, subscribers
     top_repos = []
     for i in range(len(index)):
-        top_repos.append([info[index[i],0], top_predicted_stars[i], info[index[i],1], info[index[i],2], info[index[i],3]])
+        top_repos.append([info[index[i],0], np.round(top_predicted_stars[i],3), info[index[i],1], info[index[i],2], info[index[i],3]])
 
-
-    #print(top_repos[0][0])
-    #print(top_repos[0][1])
-    #print(top_repos[0][2])
-    #print(top_repos[0][3]) 
-    #print(top_repos[0][4])
     time_elapsed = time.time() - start_time
     print(f'Elapsed time: {np.round(time_elapsed, 2)} seconds')
 
