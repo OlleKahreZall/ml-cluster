@@ -61,7 +61,7 @@ def get_metrics():
         r2.append(np.round(r2_score(y, predictions[i]), 3))
     
     #Take the predictions of the best performance method
-    pred_boosting = predictions[4]
+    pred_boosting = predictions[1]
     #top 5 highest values from the stars predictions
     index = np.argpartition(pred_boosting,-5)[-5:]
     index = index[::-1]
