@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 import os
 from workerA import get_metrics
+import numpy as np
 
 app = Flask(__name__)
 
@@ -11,8 +12,8 @@ def home():
 #To use the predict button in our web-app
 @app.route("/predictions", methods=['POST'])
 def predictions():
-    r2,top_repos = get_metrics()
-
+    r2,top_repos,time_elapsed = get_metrics()
+    #print("HELLO EVERYONE",time_elapsed)
     return render_template('predictions-page.html',
                             r2_bagging = r2[0],
                             r2_gradboost = r2[1],
@@ -30,12 +31,12 @@ def predictions():
                             rep2_real_stars = top_repos[2][1],
                             rep2_forks = top_repos[3][1],
                             rep2_subscribers = top_repos[4][1],
-                            rep3_name =  top_repos[0][2], 
+                            rep3_name =  top_repos[0][2],
                             rep3_pred_stars = top_repos[1][2],
                             rep3_real_stars = top_repos[2][2],
                             rep3_forks = top_repos[3][2],
                             rep3_subscribers = top_repos[4][2],
-                            rep4_name =  top_repos[0][3], 
+                            rep4_name =  top_repos[0][3],
                             rep4_pred_stars = top_repos[1][3],
                             rep4_real_stars = top_repos[2][3],
                             rep4_forks = top_repos[3][3],
@@ -44,7 +45,8 @@ def predictions():
                             rep5_pred_stars = top_repos[1][4],
                             rep5_real_stars = top_repos[2][4],
                             rep5_forks = top_repos[3][4],
-                            rep5_subscribers = top_repos[4][4])
+                            rep5_subscribers = top_repos[4][4],
+                            time_elapsed = np.round(time_elapsed,3))
 
 if __name__ == "__main__":
     #port = int(os.environ.get('PORT', 5100))
