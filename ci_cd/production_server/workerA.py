@@ -77,12 +77,14 @@ def get_metrics():
         top_repos.append([info[index[i],0], top_predicted_stars[i], info[index[i],1], info[index[i],2], info[index[i],3]])
 
 
-    print(top_repos[0][0])
-    print(top_repos[0][1])
-    print(top_repos[0][2])
-    print(top_repos[0][3]) 
-    print(top_repos[0][4])
+    #print(top_repos[0][0])
+    #print(top_repos[0][1])
+    #print(top_repos[0][2])
+    #print(top_repos[0][3]) 
+    #print(top_repos[0][4])
     time_elapsed = time.time() - start_time
     print(f'Elapsed time: {np.round(time_elapsed, 2)} seconds')
 
-    return r2,top_repos
+    return r2,top_repos, time_elapsed
+
+#get_metrics()
