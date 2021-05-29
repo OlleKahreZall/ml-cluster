@@ -24,7 +24,8 @@ def load_data():
     #created_at returns utc time and we need float
     X["created_at"] = pd.to_datetime(X["created_at"]).astype(int) / 10**9
     y = df[["stargazers_count"]]
-    return X, y
+    info =  df[["name","stargazers_count","forks_count", "subscribers_count"]]
+    return X, y, info
 
 def load_model():
     bagging = pickle.load(open('bagging_regressor.sav', 'rb'))
@@ -51,14 +52,37 @@ def get_predictions():
 @celery.task
 def get_metrics():
     start_time = time.time()
-    y = load_data()[1]
+    X,y,info = load_data()
     predictions = list(get_predictions())
     r2 = []
-    
+
     for i in range(len(predictions)):
         #print(predictions[i])
         r2.append(np.round(r2_score(y, predictions[i]), 3))
-    #print(r2, mse)
+    
+    #Take the predictions of the best performance method (bagging)
+    pred_boosting = predictions[1]
+    #top 5 highest values from the stars predictions
+    index = np.argpartition(pred_boosting,-5)[-5:]
+    index = index[::-1]
+    top_predicted_stars = np.partition(pred_boosting,-5)[-5:]
+    top_predicted_stars = top_predicted_stars[::-1]
+
+    #dataframe to array
+    info = info.values
+    
+    #top_repos: name, predicted_stars, real_Stars, forks, subscribers
+    top_repos = []
+    for i in range(len(index)):
+        top_repos.append([info[index[i],0], top_predicted_stars[i], info[index[i],1], info[index[i],2], info[index[i],3]])
+
+
+    print(top_repos[0][0])
+    print(top_repos[0][1])
+    print(top_repos[0][2])
+    print(top_repos[0][3]) 
+    print(top_repos[0][4])
     time_elapsed = time.time() - start_time
     print(f'Elapsed time: {np.round(time_elapsed, 2)} seconds')
-    return r2
+
+    return r2,top_repos

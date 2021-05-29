@@ -10,33 +10,82 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1> Evaluation of the regression models</h1>
-    <table style="width:100%">
+  <h1> Evaluation of the regression models</h1>
+  <table style="width:80%">
+      <tr>
+          <th>Regressor</th>
+          <th>R<sup>2</sup></th>
+      </tr>
+      <tr>
+          <td>Bagging</td>
+          <td>{{r2_bagging}}</td>
+      </tr>
+      <tr>
+          <td>Gradient Boosting</td>
+          <td>{{r2_gradboost}}</td>
+        </tr>
+      <tr>
+          <td>Neural Network</td>
+          <td>{{r2_neural_network}}</td>
+        </tr>
+      <tr>
+          <td>Voting Regressor</td>
+          <td>{{r2_voting}}</td>
+        </tr>
+      <tr>
+          <td>Decision Trees</td>
+          <td>{{r2_tree}}</td>
+        </tr>
+      <tr>
+          <td>Random Forest</td>
+          <td>{{r2_random_forest}}</td>
+        </tr>
+    </table>
+    <br>
+    <br>
+      <table style="width:100%">
         <tr>
-            <th>Regressor</th>
-            <th>R<sup>2</sup></th>
-            <th>MSE</th>
+            <th>Top repositories</th>
+            <th>Predicted stars</th>
+            <th>Real stars</th>
+            <th>Forks</th>
+            <th>Subscribers</th>
         </tr>
         <tr>
-            <td>Bagging</td>
-            <td>{{r2_bagging}}</td>
-            <td>{{mse_bagging}}</td>
+            <td>{{rep1_name}}</td>
+            <td>{{rep2_name}}</td>
+            <td>{{rep3_name}}</td>
+            <td>{{rep4_name}}</td>
+            <td>{{rep5_name}}</td>
+         </tr>
+        <tr>
+            <td>{{rep1_pred_stars}}</td>
+            <td>{{rep2_pred_stars}}</td>
+            <td>{{rep3_pred_stars}}</td>
+            <td>{{rep4_pred_stars}}</td>
+            <td>{{rep5_pred_stars}}</td>
+          </tr>
+        <tr>
+            <td>{{rep1_real_stars}}</td>
+            <td>{{rep2_real_stars}}</td>
+            <td>{{rep3_real_stars}}</td>
+            <td>{{rep4_real_stars}}</td>
+            <td>{{rep5_real_stars}}</td>
+          </tr>
+        <tr>
+            <td>{{rep1_forks}}</td>
+            <td>{{rep2_forks}}</td>
+            <td>{{rep3_forks}}</td>
+            <td>{{rep4_forks}}</td>
+            <td>{{rep5_forks}}</td>
         </tr>
         <tr>
-            <td>Gradient Boosting</td>
-            <td>{{r2_gradboost}}</td>
-            <td>{{mse_gradboost}}</td>
-          </tr>
-        <tr>
-            <td>Neural Network</td>
-            <td>{{r2_neural_network}}</td>
-            <td>{{mse_neural_network}}</td>
-          </tr>
-        <tr>
-            <td>Voting Regressor</td>
-            <td>{{r2_voting}}</td>
-            <td>{{mse_voting}}</td>
-          </tr>
+            <td>{{rep1_subscribers}}</td>
+            <td>{{rep2_subscribers}}</td>
+            <td>{{rep3_subscribers}}</td>
+            <td>{{rep4_subscribers}}</td>
+            <td>{{rep5_subscribers}}</td>
+        </tr>
 
       </table>
 
