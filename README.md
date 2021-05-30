@@ -97,21 +97,23 @@ $ sudo chmod +x hooks/post-receive
  $ mkdir new_models
  $ git init 
  ```
-? - To be able to train the models in the development server, the following Python modules are needed:
+7 - Go back to '/home/appuser' and clone the GitHub repository. Next, install pip, sklearn and pandas. After that, run the Python scripts that you want to be executed in the '/home/appuser/model_serving/training’ folder.
 ```
+$ git clone https://github.com/OlleKahreZall/model_serving.git
 $ sudo apt install python3-pip
 $ pip3 install sklearn
 $ pip3 install pandas
+$ cd model_serving
+$ python3 bagging.py
 ```
-7 - Go back to '/home/appuser' and clone the GitHub repository. Then copy the content in the '/home/appuser/model_serving/training/models' folder to the '/home/appuser/new_models' folder.
-
+8 – The saved models have been stored in the '/home/appuser/model_serving/training/models' folder. Copy the saved models and put it in the '/home/appuser/new_models' folder (which is connected to the production server).
 ```
 $ cd ..
-$ git clone https://github.com/OlleKahreZall/model_serving.git
 $ cp model_serving/training/models/* ~/new_models
 ```
 
-8 - Now, make the commits and connect to the production server.
+
+9 - Now, make the commits and connect to the production server.
 
 ```
 $ git add .
