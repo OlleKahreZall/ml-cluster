@@ -90,6 +90,12 @@ $ sudo chmod +x hooks/post-receive
  $ mkdir new_models
  $ git init 
  ```
+? - To be able to train the models in the development server, the following Python modules are needed:
+```
+$ sudo apt install python3-pip
+$ pip3 install sklearn
+$ pip3 install pandas
+```
 7 - Go back to '/home/appuser' and clone the GitHub repository. Then copy the content in the '/home/appuser/model_serving/training/models' folder to the '/home/appuser/new_models' folder.
 
 ```
