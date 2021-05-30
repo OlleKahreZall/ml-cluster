@@ -55,4 +55,4 @@ ereg = ereg.fit(features_selected, target.values.ravel())
 # Score returns the coefficient of determination R^2 of the prediction
 #print(score)
 
-pickle.dump(ereg, open(basepath + '/models/voting_regressor.sav', 'wb'))
+pickle.dump(ereg, open(basepath + 'models/voting_regressor.sav', 'wb'))
