@@ -51,5 +51,5 @@ model.fit(features_selected, target.values.ravel())
 #print(score)
 
 
-pickle.dump(model, open(basepath + '/models/bagging_regressor.sav', 'wb'))
+pickle.dump(model, open(basepath + 'models/bagging_regressor.sav', 'wb'))
 
