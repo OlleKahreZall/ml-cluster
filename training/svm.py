@@ -12,7 +12,7 @@ from os import path
 # reading the csv file using read_csv
 # storing the data frame in variable called df
 basepath = path.dirname(__file__)
-df = pd.read_csv(basepath + '/datasets/final_dataset.csv')
+df = pd.read_csv(basepath + 'datasets/final_dataset.csv')
 
 # creating a list of column names by calling the .columns
 features = list(df.columns)
