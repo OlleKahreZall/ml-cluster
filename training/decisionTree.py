@@ -50,4 +50,4 @@ tree.fit(features_selected, target.values.ravel())
 # Score returns the coefficient of determination R^2 of the prediction
 #print('Score: ', score)
 
-pickle.dump(tree, open(basepath + '/models/tree_regressor.sav', 'wb'))
+pickle.dump(tree, open(basepath + 'models/tree_regressor.sav', 'wb'))
