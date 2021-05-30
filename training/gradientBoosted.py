@@ -51,4 +51,4 @@ gradBost = GradientBoostingRegressor().fit(features_selected,  target.values.rav
 # Score returns the coefficient of determination R^2 of the prediction
 #print(score)
 
-pickle.dump(gradBost, open(basepath + '/models/gradientboosting_regressor.sav', 'wb'))
+pickle.dump(gradBost, open(basepath + 'models/gradientboosting_regressor.sav', 'wb'))
