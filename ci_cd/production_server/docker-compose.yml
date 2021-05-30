@@ -1,9 +1,10 @@
-version: "3"
+version: "3.4"
 services:
   web:
     build:
       context: .
       dockerfile: Dockerfile
+      network: host
     restart: always
     ports:
       - "5100:5100"
