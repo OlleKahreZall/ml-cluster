@@ -55,4 +55,4 @@ nn.fit(features_selected, target.values.ravel())
 # Score returns the coefficient of determination R^2 of the prediction
 #print(score)
 
-pickle.dump(nn, open(basepath + '/models/nn_regressor.sav', 'wb'))
+pickle.dump(nn, open(basepath + 'models/nn_regressor.sav', 'wb'))
