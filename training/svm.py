@@ -51,4 +51,4 @@ score = svm_regressor.score(X_test,y_test)
 # Score returns the coefficient of determination R^2 of the prediction
 print(score)
 
-pickle.dump(svm_regressor, open(basepath + '/models/svm_regressor.sav', 'wb'))
+pickle.dump(svm_regressor, open(basepath + 'models/svm_regressor.sav', 'wb'))
