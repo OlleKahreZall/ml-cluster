@@ -1,19 +1,24 @@
 # README #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+### Repository for project 3 Data Engineering 2 course ###
 
-### What is this repository for? ###
-
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+* Setting up the cluster
+* Setting up Git hooks
 
 ### Setting up the cluster ###
+
+Install necessary packages:
+```
+sudo apt install python3-openstackclient
+sudo apt install python3-novaclient
+sudo apt install python3-keystoneclient
+```
 
 1 - Create cluster keys to access the VMs:
 ```
 ssh-keygen
 ```
+Specify folder ~/cluster-keys to store the public and private key
 
 2 - We need authorization to deploy machines on the cluster:
 
@@ -22,10 +27,12 @@ source ~/UPPMAX\ 2020_1-3-openrc.sh
 ```
 
 3 - Then, we need to run the start_instances script to deploy the production server and the development server.
-	Go to github_stargazers/model_serving/openstack-client/single_node_with_docker_ansible_client and run:
+	Go to model_serving/openstack-client/single_node_with_docker_ansible_client. First modify the key_name filed for your own ssh key. Then run:
+	
 ```
 python3 start_instances.py
 ```
+
 
 4 - Next, on the client VM run:
 ```
@@ -115,21 +122,3 @@ $ git push production master
 
 9 - Visit the production server's website to see the new results.
 
-
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
-
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
