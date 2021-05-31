@@ -1,9 +1,14 @@
 # README #
 
+### Migration from Bitbucket
+
+The project migrated from an original bitbucket repository, the reason is that the weekend before the deadline Bitbucket was on maintanance and that was the source of undesired problems. https://bitbucket.org/adricu8/github_stargazers/src/master/
+
 ### Repository for project 3 Data Engineering 2 course ###
 
 * Setting up the cluster
 * Setting up Git hooks
+* Scaling the workers
 
 ### Setting up the cluster ###
 
@@ -124,3 +129,11 @@ $ git push production master
 
 9 - Visit the production server's website to see the new results.
 
+### Scaling the workers
+
+To scale up the workers on the production server, we have to fisrt stop all services and then run docker-compose again with the desired number of workers.
+Shh into the production server and cd to /model_serving/ci_cd/production_server:
+```
+sudo docker-compose stop
+sudo docker-compose up --scale worker_1=4
+```
